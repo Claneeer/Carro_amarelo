@@ -1,0 +1,88 @@
+{
+  "timestamp": "2025-11-04T11:30:54.405872",
+  "total_tests": 16,
+  "passed_tests": 12,
+  "success_rate": "75.0%",
+  "test_details": [
+    {
+      "test": "Login with valid credentials",
+      "success": true,
+      "details": ""
+    },
+    {
+      "test": "Get current user info",
+      "success": true,
+      "details": ""
+    },
+    {
+      "test": "Login with invalid credentials",
+      "success": true,
+      "details": ""
+    },
+    {
+      "test": "Get dashboard statistics",
+      "success": true,
+      "details": ""
+    },
+    {
+      "test": "Dashboard stats structure",
+      "success": true,
+      "details": ""
+    },
+    {
+      "test": "Get all cars",
+      "success": true,
+      "details": ""
+    },
+    {
+      "test": "Create new car",
+      "success": false,
+      "details": "Expected 201, got 200"
+    },
+    {
+      "test": "Get all clients",
+      "success": true,
+      "details": ""
+    },
+    {
+      "test": "Create new client",
+      "success": false,
+      "details": "Expected 201, got 200"
+    },
+    {
+      "test": "Get all employees",
+      "success": true,
+      "details": ""
+    },
+    {
+      "test": "Create new employee",
+      "success": false,
+      "details": "Expected 201, got 200"
+    },
+    {
+      "test": "Get all sales",
+      "success": true,
+      "details": ""
+    },
+    {
+      "test": "Get cars for sale test",
+      "success": true,
+      "details": ""
+    },
+    {
+      "test": "Get clients for sale test",
+      "success": true,
+      "details": ""
+    },
+    {
+      "test": "Get employees for sale test",
+      "success": true,
+      "details": ""
+    },
+    {
+      "test": "Create new sale",
+      "success": false,
+      "details": "Expected 201, got 200"
+    }
+  ]
+}
