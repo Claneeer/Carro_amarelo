@@ -349,17 +349,21 @@ class CarroAmareloAPITester:
                 
                 if success:
                     # Verify car status reverted to 'disponível'
-                    success, reverted_car = self.run_test(
-                        "Verify car status reverted after sale deletion",
+                    success, all_cars_after_delete = self.run_test(
+                        "Get cars to verify status revert",
                         "GET",
-                        f"carros/{available_cars[0]['id']}",
+                        "carros",
                         200
                     )
                     
-                    if success and reverted_car.get('status') == 'disponível':
-                        self.log_test("Car status revert after sale deletion", True)
+                    if success:
+                        reverted_car = next((c for c in all_cars_after_delete if c['id'] == available_cars[0]['id']), None)
+                        if reverted_car and reverted_car.get('status') == 'disponível':
+                            self.log_test("Car status revert after sale deletion", True)
+                        else:
+                            self.log_test("Car status revert after sale deletion", False, "Car status not reverted to 'disponível'")
                     else:
-                        self.log_test("Car status revert after sale deletion", False, "Car status not reverted to 'disponível'")
+                        self.log_test("Car status revert after sale deletion", False, "Could not fetch cars to verify status revert")
         else:
             self.log_test("Sales test setup", False, "No available cars, clients, or employees for testing")
 
