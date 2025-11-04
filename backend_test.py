@@ -314,17 +314,21 @@ class CarroAmareloAPITester:
                 self.created_ids['vendas'].append(sale_id)
                 
                 # Verify car status changed to 'vendido'
-                success, updated_car = self.run_test(
-                    "Verify car marked as sold",
+                success, all_cars_after_sale = self.run_test(
+                    "Get cars to verify sale status",
                     "GET",
-                    f"carros/{available_cars[0]['id']}",
+                    "carros",
                     200
                 )
                 
-                if success and updated_car.get('status') == 'vendido':
-                    self.log_test("Car status update after sale", True)
+                if success:
+                    sold_car = next((c for c in all_cars_after_sale if c['id'] == available_cars[0]['id']), None)
+                    if sold_car and sold_car.get('status') == 'vendido':
+                        self.log_test("Car status update after sale", True)
+                    else:
+                        self.log_test("Car status update after sale", False, "Car status not updated to 'vendido'")
                 else:
-                    self.log_test("Car status update after sale", False, "Car status not updated to 'vendido'")
+                    self.log_test("Car status update after sale", False, "Could not fetch cars to verify status")
                 
                 # Test selling already sold car (should fail)
                 self.run_test(
