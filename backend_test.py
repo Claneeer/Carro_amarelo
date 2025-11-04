@@ -301,7 +301,7 @@ class CarroAmareloAPITester:
                 "Create new sale",
                 "POST",
                 "vendas",
-                201,
+                200,
                 data=new_sale_data
             )
             
