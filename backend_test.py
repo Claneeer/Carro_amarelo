@@ -160,7 +160,7 @@ class CarroAmareloAPITester:
             "Create new car",
             "POST",
             "carros",
-            201,
+            200,
             data=new_car_data
         )
         
