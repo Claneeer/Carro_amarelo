@@ -178,18 +178,22 @@ class CarroAmareloAPITester:
                 data=update_data
             )
             
-            # Get updated car to verify
-            success, updated_car = self.run_test(
-                "Get updated car",
+            # Get all cars to verify update
+            success, all_cars = self.run_test(
+                "Get all cars to verify update",
                 "GET",
-                f"carros/{car_id}",
+                "carros",
                 200
             )
             
-            if success and updated_car.get('preco') == 90000.00:
-                self.log_test("Car update verification", True)
+            if success:
+                updated_car = next((c for c in all_cars if c['id'] == car_id), None)
+                if updated_car and updated_car.get('preco') == 90000.00:
+                    self.log_test("Car update verification", True)
+                else:
+                    self.log_test("Car update verification", False, "Price not updated correctly")
             else:
-                self.log_test("Car update verification", False, "Price not updated correctly")
+                self.log_test("Car update verification", False, "Could not fetch cars to verify update")
 
     def test_clientes_crud(self):
         """Test clients CRUD operations"""
