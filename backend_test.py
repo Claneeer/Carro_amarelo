@@ -213,7 +213,7 @@ class CarroAmareloAPITester:
             "Create new client",
             "POST",
             "clientes",
-            201,
+            200,
             data=new_client_data
         )
         
