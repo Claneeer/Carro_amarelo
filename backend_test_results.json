@@ -1,8 +1,8 @@
 {
-  "timestamp": "2025-11-04T11:30:54.405872",
-  "total_tests": 16,
-  "passed_tests": 12,
-  "success_rate": "75.0%",
+  "timestamp": "2025-11-04T11:31:21.287856",
+  "total_tests": 29,
+  "passed_tests": 21,
+  "success_rate": "72.4%",
   "test_details": [
     {
       "test": "Login with valid credentials",
@@ -36,8 +36,23 @@
     },
     {
       "test": "Create new car",
+      "success": true,
+      "details": ""
+    },
+    {
+      "test": "Update car",
+      "success": true,
+      "details": ""
+    },
+    {
+      "test": "Get updated car",
       "success": false,
-      "details": "Expected 201, got 200"
+      "details": "Expected 200, got 405 - Method Not Allowed"
+    },
+    {
+      "test": "Car update verification",
+      "success": false,
+      "details": "Price not updated correctly"
     },
     {
       "test": "Get all clients",
@@ -46,8 +61,13 @@
     },
     {
       "test": "Create new client",
-      "success": false,
-      "details": "Expected 201, got 200"
+      "success": true,
+      "details": ""
+    },
+    {
+      "test": "Update client",
+      "success": true,
+      "details": ""
     },
     {
       "test": "Get all employees",
@@ -57,7 +77,7 @@
     {
       "test": "Create new employee",
       "success": false,
-      "details": "Expected 201, got 200"
+      "details": "Expected 200, got 400 - Email j\u00e1 cadastrado"
     },
     {
       "test": "Get all sales",
@@ -81,8 +101,53 @@
     },
     {
       "test": "Create new sale",
+      "success": true,
+      "details": ""
+    },
+    {
+      "test": "Verify car marked as sold",
       "success": false,
-      "details": "Expected 201, got 200"
+      "details": "Expected 200, got 405 - Method Not Allowed"
+    },
+    {
+      "test": "Car status update after sale",
+      "success": false,
+      "details": "Car status not updated to 'vendido'"
+    },
+    {
+      "test": "Attempt to sell already sold car",
+      "success": true,
+      "details": ""
+    },
+    {
+      "test": "Delete sale",
+      "success": true,
+      "details": ""
+    },
+    {
+      "test": "Verify car status reverted after sale deletion",
+      "success": false,
+      "details": "Expected 200, got 405 - Method Not Allowed"
+    },
+    {
+      "test": "Car status revert after sale deletion",
+      "success": false,
+      "details": "Car status not reverted to 'dispon\u00edvel'"
+    },
+    {
+      "test": "Cleanup sale 02f79b19-0255-4012-83d9-30d6feddbd2c",
+      "success": false,
+      "details": "Expected 200, got 404 - Venda n\u00e3o encontrada"
+    },
+    {
+      "test": "Cleanup car 8a93f2f3-839d-4618-bf68-241ee1bb0279",
+      "success": true,
+      "details": ""
+    },
+    {
+      "test": "Cleanup client e9cd8196-541f-4353-a918-1ea6bdf1b259",
+      "success": true,
+      "details": ""
     }
   ]
 }
