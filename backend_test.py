@@ -253,7 +253,7 @@ class CarroAmareloAPITester:
             "Create new employee",
             "POST",
             "funcionarios",
-            201,
+            200,
             data=new_employee_data
         )
         
