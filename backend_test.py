@@ -244,11 +244,12 @@ class CarroAmareloAPITester:
         if success:
             print(f"   Found {len(funcionarios)} employees in database")
         
-        # Create new employee
+        # Create new employee with unique email
+        timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
         new_employee_data = {
             "nome": "Test Employee",
             "cargo": "Vendedor",
-            "email": "test@employee.com",
+            "email": f"test{timestamp}@employee.com",
             "salario": 3000.00,
             "senha": "testpass123"
         }
